@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
-
+import { LoginProvider } from './loginProvider.interface';
+import { RegistrationProvider } from './registrationProvider.interface';
 import { User } from '../users/user.class';
-import { AngularFireAuth} from 'angularfire2/auth';
-import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from 'angularfire2/firestore';
+import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
 import * as firebase from 'firebase/app';
+
+import { CanActivate, Router } from '@angular/router';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/take';
 
 import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 import { Observable } from 'rxjs/Observable';
@@ -11,44 +17,49 @@ import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/switchMap';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements LoginProvider, RegistrationProvider {
 
-  user: AngularFirestoreDocument<User>;
-  users: AngularFirestoreCollection<User>;
   constructor(private afAuth: AngularFireAuth, private afDatabase: AngularFirestore) {
-      
-      this.afAuth.authState.subscribe(auth => {
-        if(!auth){
-          console.log(auth.getIdToken());
-        }else if(auth){
-          console.log(auth.getIdToken());
-        }
-      });
-
   }
 
-  googleLogin(){
+  loginGoogle(): Promise<User> {
     const provider = new firebase.auth.GoogleAuthProvider();
     return this.afAuth.auth.signInWithPopup(provider).then((credential) => {
-      this.updateUser(credential.user);
-      console.log(credential.user);
-    })
+      // Temp return a basic user with just a UID
+      return {
+        uid: credential.user.uid
+      };
+    });
   }
 
-  private updateUser(userInfo){
-    const userData = new User(userInfo)
-    const ref =this.afDatabase.doc('users/' + userInfo.uid);
-    ref.valueChanges().subscribe(user => {
-      if(user == null){
-        ref.set({email: userData.email, roles: userData.roles})
-      }else{
-        console.log("user already exists hi");
-      }
-    })
-    
+  loginFacebook(): Promise<User> {
+    throw new Error('Method not implemented.');
   }
 
-  logOut(){
+  customLogin(loginInformation: { emailAddress: string; password: string; }): Promise<User> {
+    return this.afAuth
+      .auth
+      .signInWithEmailAndPassword(loginInformation.emailAddress, loginInformation.password)
+      .then(value => {
+        return {
+          uid: value.UID
+        };
+      });
+  }
+
+  registerUser(registrationInformation: { emailAddress: string; password: string; }): Promise<User> {
+    return this.afAuth
+      .auth
+      .createUserWithEmailAndPassword(registrationInformation.emailAddress, registrationInformation.password)
+      .then(value => {
+        // Currently we'll just leave it as a simple user with only a UID
+        return {
+          uid: value.UID
+        };
+      });
+  }
+
+  logout() {
     this.afAuth.auth.signOut();
   }
 }

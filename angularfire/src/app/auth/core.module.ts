@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 
-import {AngularFireAuthModule} from'angularfire2/auth';
+import {AngularFireAuthModule} from 'angularfire2/auth';
 import { AuthService } from './auth.service';
 @NgModule({
     providers: [AuthService],
@@ -9,4 +9,6 @@ import { AuthService } from './auth.service';
     ]
 })
 
-export class CoreModule{}
+export class CoreModule {
+
+}
