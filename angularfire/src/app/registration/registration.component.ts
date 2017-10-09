@@ -31,7 +31,7 @@ export class RegistrationComponent {
   /**
    * Checks whether or not the form is filled in correct and then registers the user.
    */
-  onSubmit() {
+  register() {
     if (this.form.valid) {
       this.registrationProvider
         .registerUser(this.model)

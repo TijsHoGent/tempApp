@@ -8,6 +8,7 @@ import {LoginComponent} from "../app/login/login.component";
 import {AppComponent} from "../app/app.component";
 import {PageNotFoundComponent} from "../app/pagenotfound/pagenotfound.component";
 import {RegistrationComponent} from "../app/registration/registration.component";
+import {CustomLoginComponent} from "../app/login/customlogin/customlogin.component";
 
 export const environment = {
   production: false,
@@ -25,5 +26,6 @@ export const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'home',      component: AppComponent },
+  { path: 'login/form',      component: CustomLoginComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

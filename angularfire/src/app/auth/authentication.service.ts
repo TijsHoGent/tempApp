@@ -21,7 +21,7 @@ export class AuthenticationService implements LoginProvider, RegistrationProvide
     return this.afAuth
       .auth
       .signInWithEmailAndPassword(loginInformation.emailAddress, loginInformation.password)
-      .then(result => new LoginResult(result.user.uid));
+      .then(result => new LoginResult(result.uid));
   }
 
   registerUser(registrationInformation: { emailAddress: string; password: string; }): Promise<RegistrationResult> {

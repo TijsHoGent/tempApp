@@ -13,7 +13,7 @@ export class LoginResult {
   /**
    * @param {string} userId The UID of the user that logged in.
    */
-  constructor(private userId: string) {
+  constructor(public userId: string) {
   }
 }
 
