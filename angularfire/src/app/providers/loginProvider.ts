@@ -1,7 +1,5 @@
-import { User } from '../users/user.class';
-import { InjectionToken } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { AuthProvider } from 'firebase/auth';
+import {InjectionToken} from '@angular/core';
+import {AuthProvider} from 'firebase/auth';
 
 /**
  * An injection token for the login provider.

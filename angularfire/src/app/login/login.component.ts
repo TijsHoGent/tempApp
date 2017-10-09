@@ -1,6 +1,6 @@
-import { Component, OnInit, HostBinding, Inject } from '@angular/core';
-import { LoginProvider, LOGIN_PROVIDER } from '../providers/loginProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
+import {Component, Inject} from '@angular/core';
+import {GoogleAuthProvider} from 'firebase/auth';
+import {LOGIN_PROVIDER, LoginProvider} from '../providers/loginProvider';
 
 @Component({
   selector: 'app-login',

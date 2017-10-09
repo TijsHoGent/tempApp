@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
-import { LoginProvider, LoginResult } from '../providers/loginProvider';
-import { RegistrationProvider, RegistrationResult } from '../providers/registrationProvider';
-import { AngularFireAuth } from 'angularfire2/auth';
-import { AuthProvider } from 'firebase/auth';
+import {Injectable} from '@angular/core';
+import {AngularFireAuth} from 'angularfire2/auth';
+import {AuthProvider} from 'firebase/auth';
+import {LoginProvider, LoginResult} from '../providers/loginProvider';
+import {RegistrationProvider, RegistrationResult} from '../providers/registrationProvider';
 
 @Injectable()
 export class AuthenticationService implements LoginProvider, RegistrationProvider {
@@ -28,7 +28,7 @@ export class AuthenticationService implements LoginProvider, RegistrationProvide
     return this.afAuth
       .auth
       .createUserWithEmailAndPassword(registrationInformation.emailAddress, registrationInformation.password)
-      .then(result => new RegistrationResult(result.user.uid));
+      .then(result => new RegistrationResult(result.uid));
   }
 
   logout() {

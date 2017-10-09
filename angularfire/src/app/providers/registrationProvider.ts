@@ -1,6 +1,4 @@
-import { User } from '../users/user.class';
-import { InjectionToken } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
+import {InjectionToken} from '@angular/core';
 
 /**
  * An injection token for the registration provider.
