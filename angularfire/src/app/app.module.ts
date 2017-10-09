@@ -15,9 +15,9 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 
-import { LOGIN_PROVIDER } from './auth/loginProvider.interface';
-import { REGISTRATION_PROVIDER } from './auth/registrationProvider.interface';
-import { AuthService } from './auth/auth.service';
+import { LOGIN_PROVIDER } from './providers/loginProvider.interface';
+import { REGISTRATION_PROVIDER } from './providers/registrationProvider.interface';
+import { AuthenticationService } from './auth/authentication.service';
 
 import { Router } from '@angular/router';
 
@@ -34,8 +34,8 @@ import { Router } from '@angular/router';
     AngularFireAuthModule
   ],
   providers: [
-    { provide: LOGIN_PROVIDER, useClass: AuthService },
-    { provide: REGISTRATION_PROVIDER, useClass: AuthService }
+    { provide: LOGIN_PROVIDER, useClass: AuthenticationService },
+    { provide: REGISTRATION_PROVIDER, useClass: AuthenticationService }
   ],
   bootstrap: [AppComponent]
 })

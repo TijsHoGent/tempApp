@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { RegistrationProvider, REGISTRATION_PROVIDER } from '../auth/registrationProvider.interface';
+import { RegistrationProvider, REGISTRATION_PROVIDER } from '../providers/registrationProvider.interface';
 
 @Component({
   selector: 'app-signup',

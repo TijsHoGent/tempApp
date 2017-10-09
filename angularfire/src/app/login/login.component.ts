@@ -1,5 +1,5 @@
 import { Component, OnInit, HostBinding, Inject } from '@angular/core';
-import { LoginProvider, LOGIN_PROVIDER } from '../auth/loginProvider.interface';
+import { LoginProvider, LOGIN_PROVIDER } from '../providers/loginProvider.interface';
 
 @Component({
   selector: 'app-login',

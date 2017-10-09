@@ -2,7 +2,7 @@ import { User } from '../users/user.class';
 import { InjectionToken } from '@angular/core';
 
 /**
- * An injection token for the login provider.
+ * An injection token for the registration provider.
  */
 export const REGISTRATION_PROVIDER = new InjectionToken<RegistrationProvider>('registration.provider');
 
