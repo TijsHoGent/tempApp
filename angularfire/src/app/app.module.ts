@@ -14,7 +14,8 @@ import {LoginComponent} from './login/login.component';
 
 import {LOGIN_PROVIDER} from './providers/loginProvider';
 import {REGISTRATION_PROVIDER} from './providers/registrationProvider';
-import {SignUpComponent} from './signup/signup.component';
+import {RegistrationComponent} from './registration/registration.component';
+import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -22,7 +23,8 @@ export const firebaseConfig = environment.firebaseConfig;
   declarations: [
     AppComponent,
     LoginComponent,
-    SignUpComponent
+    RegistrationComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

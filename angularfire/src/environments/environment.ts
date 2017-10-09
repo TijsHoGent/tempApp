@@ -3,6 +3,12 @@
 // `ng build --env=prod` then `environment.prod.ts` will be used instead.
 // The list of which env maps to which file can be found in `.angular-cli.json`.
 
+import {Routes} from "@angular/router";
+import {LoginComponent} from "../app/login/login.component";
+import {AppComponent} from "../app/app.component";
+import {PageNotFoundComponent} from "../app/pagenotfound/pagenotfound.component";
+import {RegistrationComponent} from "../app/registration/registration.component";
+
 export const environment = {
   production: false,
   firebaseConfig : {
@@ -14,3 +20,10 @@ export const environment = {
     messagingSenderId: '771850462701'
   }
 };
+
+export const appRoutes: Routes = [
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegistrationComponent },
+  { path: 'home',      component: AppComponent },
+  { path: '**', component: PageNotFoundComponent }
+];
