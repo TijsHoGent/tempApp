@@ -20,6 +20,11 @@ const FACEBOOK_API = new firebase.auth.FacebookAuthProvider();
  */
 const TWITTER_API = new firebase.auth.TwitterAuthProvider();
 
+/**
+ * @type {firebase.auth.GithubAuthProvider} The authentication provider for Github.
+ */
+const GITHUB_API = new firebase.auth.GithubAuthProvider();
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -61,6 +66,13 @@ export class LoginComponent {
    */
   loginTwitter() {
     this.loginWithApi(TWITTER_API);
+  }
+
+  /**
+   * Open the Github API to attempt to log in.
+   */
+  loginGithub() {
+    this.loginWithApi(GITHUB_API);
   }
 
   /**
