@@ -1,5 +1,6 @@
 import { Component, OnInit, HostBinding, Inject } from '@angular/core';
-import { LoginProvider, LOGIN_PROVIDER } from '../providers/loginProvider.interface';
+import { LoginProvider, LOGIN_PROVIDER } from '../providers/loginProvider';
+import { GoogleAuthProvider } from 'firebase/auth';
 
 @Component({
   selector: 'app-login',
@@ -7,11 +8,16 @@ import { LoginProvider, LOGIN_PROVIDER } from '../providers/loginProvider.interf
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
+  /**
+   * The authentication provider for Google.
+   */
+  private readonly googleApi = new GoogleAuthProvider;
+
   constructor(@Inject(LOGIN_PROVIDER) private loginProvider: LoginProvider) {
   }
 
   loginGoogle() {
-    this.loginProvider.loginGoogle().then(result => {
+    this.loginProvider.loginWithApi(this.googleApi).then(result => {
       console.log(result);
     });
   }
