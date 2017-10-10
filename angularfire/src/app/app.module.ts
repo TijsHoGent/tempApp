@@ -15,15 +15,19 @@ import {LoginComponent} from './login/login.component';
 import {POST_LOGIN_HANDLER, PostLoginHandlerService} from "./login/postLoginHandler.service";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RegistrationComponent} from './registration/registration.component';
+import {ADMINISTRATOR_SERVICE} from "./service/administratorService";
 import {AuthenticationService} from './service/authentication.service';
 import {DatabaseService} from "./service/databaseService.service";
 
 import {LOGIN_SERVICE} from './service/loginService';
+import {REFEREE_SERVICE} from "./service/refereeService";
 import {REGISTRATION_SERVICE} from './service/registrationService';
 import {USER_SERVICE} from "./service/userService";
 import {AdminPanelComponent} from "./users/admin/admin-panel/admin-panel.component";
+import {UserAdminDetailsComponent} from './users/admin/user-admin-details/user-admin-details.component';
+import {EditUserDetailsComponent} from './users/admin/user-details/edit-user-details/edit-user-details.component';
 import {UserDetailsComponent} from './users/admin/user-details/user-details.component';
-import { EditUserDetailsComponent } from './users/admin/user-details/edit-user-details/edit-user-details.component';
+import {UserRefereeDetailsComponent} from './users/admin/user-referee-details/user-referee-details.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -36,7 +40,9 @@ export const firebaseConfig = environment.firebaseConfig;
     CustomLoginComponent,
     UserDetailsComponent,
     AdminPanelComponent,
-    EditUserDetailsComponent
+    EditUserDetailsComponent,
+    UserRefereeDetailsComponent,
+    UserAdminDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +57,9 @@ export const firebaseConfig = environment.firebaseConfig;
     {provide: LOGIN_SERVICE, useClass: AuthenticationService},
     {provide: REGISTRATION_SERVICE, useClass: AuthenticationService},
     {provide: POST_LOGIN_HANDLER, useClass: PostLoginHandlerService},
-    {provide: USER_SERVICE, useClass: DatabaseService}
+    {provide: USER_SERVICE, useClass: DatabaseService},
+    {provide: REFEREE_SERVICE, useClass: DatabaseService},
+    {provide: ADMINISTRATOR_SERVICE, useClass: DatabaseService}
   ],
   bootstrap: [AppComponent]
 })
