@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit} from '@angular/core';
 import {Observable} from "rxjs/Observable";
-import {ADMINISTRATOR_SERVICE, AdministratorService} from "../../../service/administratorService";
+import {ADMINISTRATOR_SERVICE, AdministratorService} from "../../../../service/administratorService";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {AngularFireAuth} from "angularfire2/auth";
 

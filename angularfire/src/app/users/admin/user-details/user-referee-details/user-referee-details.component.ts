@@ -1,5 +1,5 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {REFEREE_SERVICE, RefereeService} from "../../../service/refereeService";
+import {REFEREE_SERVICE, RefereeService} from "../../../../service/refereeService";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {AngularFireAuth} from "angularfire2/auth";

@@ -24,10 +24,10 @@ import {REFEREE_SERVICE} from "./service/refereeService";
 import {REGISTRATION_SERVICE} from './service/registrationService';
 import {USER_SERVICE} from "./service/userService";
 import {AdminPanelComponent} from "./users/admin/admin-panel/admin-panel.component";
-import {UserAdminDetailsComponent} from './users/admin/user-admin-details/user-admin-details.component';
+import {UserAdminDetailsComponent} from './users/admin/user-details/user-admin-details/user-admin-details.component';
 import {EditUserDetailsComponent} from './users/admin/user-details/edit-user-details/edit-user-details.component';
 import {UserDetailsComponent} from './users/admin/user-details/user-details.component';
-import {UserRefereeDetailsComponent} from './users/admin/user-referee-details/user-referee-details.component';
+import {UserRefereeDetailsComponent} from './users/admin/user-details/user-referee-details/user-referee-details.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
