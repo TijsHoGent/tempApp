@@ -1,3 +1,3 @@
 <p *ngFor="let user of users | async">
-  {{ user.emailAddress }} <a [routerLink]="['/admin/user/', user.userId]"><button>Edit</button></a> | <button onclick="resetUserData(user.userId)">Reset</button>
+  {{ user.emailAddress }} <button [routerLink]="['/admin/user/', user.userId]">View</button>
 </p>

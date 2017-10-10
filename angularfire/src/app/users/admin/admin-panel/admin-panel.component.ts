@@ -22,15 +22,4 @@ export class AdminPanelComponent implements OnInit {
   ngOnInit() {
     this.users = this.userService.getAllUsers();
   }
-
-  /**
-   * This will reset the user data from the selected user.
-   * Resetting will delete the user file.
-   *
-   * @param {string} userId The UID of the user to reset.
-   */
-  resetUserData(userId: string) {
-    this.userService
-      .removeUser(userId);
-  }
 }

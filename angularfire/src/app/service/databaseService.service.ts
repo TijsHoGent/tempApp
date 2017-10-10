@@ -14,7 +14,6 @@ const USERS_DIRECTORY: string = 'users';
  */
 @Injectable()
 export class DatabaseService implements UserService {
-
   /**
    * @param {AngularFirestore} database The database to use.
    */
@@ -40,11 +39,18 @@ export class DatabaseService implements UserService {
       .valueChanges();
   }
 
-  getUsers(userId: string): Observable<any> {
+  getUser(userId: string): Observable<any> {
     return this.database
       .collection(USERS_DIRECTORY)
       .doc(userId)
       .valueChanges();
+  }
+
+  updateUser(userId: string, data: any): Promise<void> {
+    return this.database
+      .collection(USERS_DIRECTORY)
+      .doc(userId)
+      .update(data);
   }
 
   removeUser(userId: string): Promise<void> {

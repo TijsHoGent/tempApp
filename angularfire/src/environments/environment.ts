@@ -11,6 +11,7 @@ import {CustomLoginComponent} from "../app/login/customlogin/customlogin.compone
 import {AdminPanelComponent} from "../app/users/admin/admin-panel/admin-panel.component";
 import {UserDetailsComponent} from "../app/users/admin/user-details/user-details.component";
 import {PageNotFoundComponent} from "../app/page-not-found/page-not-found.component";
+import {EditUserDetailsComponent} from "../app/users/admin/user-details/edit-user-details/edit-user-details.component";
 
 export const environment = {
   production: false,
@@ -30,6 +31,7 @@ export const appRoutes: Routes = [
   { path: 'home',      component: AppComponent },
   { path: 'admin',      component: AdminPanelComponent },
   { path: 'admin/user/:userId',      component: UserDetailsComponent },
+  { path: 'admin/user/edit/:userId',      component: EditUserDetailsComponent },
   { path: 'login/form',      component: CustomLoginComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

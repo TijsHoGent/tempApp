@@ -49,7 +49,7 @@ export class RegistrationComponent {
 /**
  * A small helper class that holds form data.
  */
-export class RegistrationForm {
+class RegistrationForm {
   /**
    * @param {string} emailAddress The e-mail address for the user.
    * @param {string} password The password for the user.

@@ -23,6 +23,7 @@ import {REGISTRATION_SERVICE} from './service/registrationService';
 import {USER_SERVICE} from "./service/userService";
 import {AdminPanelComponent} from "./users/admin/admin-panel/admin-panel.component";
 import {UserDetailsComponent} from './users/admin/user-details/user-details.component';
+import { EditUserDetailsComponent } from './users/admin/user-details/edit-user-details/edit-user-details.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -34,7 +35,8 @@ export const firebaseConfig = environment.firebaseConfig;
     PageNotFoundComponent,
     CustomLoginComponent,
     UserDetailsComponent,
-    AdminPanelComponent
+    AdminPanelComponent,
+    EditUserDetailsComponent
   ],
   imports: [
     BrowserModule,

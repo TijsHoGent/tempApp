@@ -33,7 +33,13 @@ export interface UserService {
    * @param {string} userId The UID of the user to look for.
    * @returns {Observable<any>} The found user.
    */
-  getUsers(userId: string): Observable<any>;
+  getUser(userId: string): Observable<any>;
+
+  /**
+   * @param {string} userId The UID of the user to update.
+   * @param data The update to do on that user.
+   */
+  updateUser(userId: string, data): Promise<void>;
 
   /**
    * Remove the given user from the database.
