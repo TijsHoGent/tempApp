@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {Router} from "@angular/router";
 import * as firebase from 'firebase/app';
 import {AuthProvider} from 'firebase/auth';
-import {LOGIN_PROVIDER, LoginProvider} from '../providers/loginProvider';
+import {LOGIN_SERVICE, LoginService} from '../service/loginService';
 import {POST_LOGIN_HANDLER, PostLoginHandler} from './postLoginHandler.service';
 
 /**
@@ -40,11 +40,11 @@ export class LoginComponent {
   private message: string = 'Please log in using any of the following methods.';
 
   /**
-   * @param {LoginProvider} loginProvider The loginProvider to use when trying to log in a user.
+   * @param {LoginService} loginProvider The loginProvider to use when trying to log in a user.
    * @param {PostLoginHandler} postLoginHandler The loginHandler that deals with what happens post login and on error.
    * @param {Router} router The router to use to route to the login page.
    */
-  constructor(@Inject(LOGIN_PROVIDER) private loginProvider: LoginProvider, @Inject(POST_LOGIN_HANDLER)private postLoginHandler: PostLoginHandler, private router: Router) {
+  constructor(@Inject(LOGIN_SERVICE) private loginProvider: LoginService, @Inject(POST_LOGIN_HANDLER)private postLoginHandler: PostLoginHandler, private router: Router) {
   }
 
   /**

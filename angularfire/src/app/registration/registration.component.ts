@@ -1,5 +1,6 @@
 import {Component, Inject, ViewChild} from '@angular/core';
-import {REGISTRATION_PROVIDER, RegistrationProvider} from '../providers/registrationProvider';
+import {REGISTRATION_SERVICE, RegistrationService} from '../service/registrationService';
+import {Name} from "../users/name.class";
 
 @Component({
   selector: 'app-sign-up-form',
@@ -23,9 +24,9 @@ export class RegistrationComponent {
   private form: any;
 
   /**
-   * @param {RegistrationProvider} registrationProvider The registrationProvider to use when registering the user.
+   * @param {RegistrationService} registrationProvider The registrationProvider to use when registering the user.
    */
-  constructor(@Inject(REGISTRATION_PROVIDER) private registrationProvider: RegistrationProvider) {
+  constructor(@Inject(REGISTRATION_SERVICE) private registrationProvider: RegistrationService) {
   }
 
   /**
@@ -34,7 +35,7 @@ export class RegistrationComponent {
   register() {
     if (this.form.valid) {
       this.registrationProvider
-        .registerUser(this.model)
+        .registerUser(this.model.emailAddress, this.model.password, this.model.name)
         .then(value => {
           //TODO WRITE CODE HERE FOR WHEN USER IS CREATED
         })
@@ -52,8 +53,10 @@ export class RegistrationForm {
   /**
    * @param {string} emailAddress The e-mail address for the user.
    * @param {string} password The password for the user.
+   * @param name The name of the user.
    */
   constructor(public emailAddress: string = '',
-              public password: string = '') {
+              public password: string = '',
+              public name: Name = new Name('', '')) {
   }
 }

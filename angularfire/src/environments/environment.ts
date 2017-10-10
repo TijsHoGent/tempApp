@@ -6,9 +6,11 @@
 import {Routes} from "@angular/router";
 import {LoginComponent} from "../app/login/login.component";
 import {AppComponent} from "../app/app.component";
-import {PageNotFoundComponent} from "../app/pagenotfound/pagenotfound.component";
 import {RegistrationComponent} from "../app/registration/registration.component";
 import {CustomLoginComponent} from "../app/login/customlogin/customlogin.component";
+import {AdminPanelComponent} from "../app/users/admin/admin-panel/admin-panel.component";
+import {UserDetailsComponent} from "../app/users/admin/user-details/user-details.component";
+import {PageNotFoundComponent} from "../app/page-not-found/page-not-found.component";
 
 export const environment = {
   production: false,
@@ -26,6 +28,8 @@ export const appRoutes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegistrationComponent },
   { path: 'home',      component: AppComponent },
+  { path: 'admin',      component: AdminPanelComponent },
+  { path: 'admin/user/:userId',      component: UserDetailsComponent },
   { path: 'login/form',      component: CustomLoginComponent },
   { path: '**', component: PageNotFoundComponent }
 ];

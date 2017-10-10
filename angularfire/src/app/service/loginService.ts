@@ -2,9 +2,9 @@ import {InjectionToken} from '@angular/core';
 import {AuthProvider} from 'firebase/auth';
 
 /**
- * An injection token for the {@link LoginProvider}.
+ * An injection token for the {@link LoginService}.
  */
-export const LOGIN_PROVIDER = new InjectionToken<LoginProvider>('login.provider');
+export const LOGIN_SERVICE = new InjectionToken<LoginService>('login.service');
 
 /**
  * A class that gives back the login result.
@@ -20,7 +20,7 @@ export class LoginResult {
 /**
  * An interface that provides the ability to log in.
  */
-export interface LoginProvider {
+export interface LoginService {
   /**
    * Logs the user in using an external API.
    *

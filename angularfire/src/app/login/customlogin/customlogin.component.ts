@@ -1,5 +1,5 @@
 import {Component, Inject, ViewChild} from '@angular/core';
-import {LOGIN_PROVIDER, LoginProvider} from "../../providers/loginProvider";
+import {LOGIN_SERVICE, LoginService} from "../../service/loginService";
 import {POST_LOGIN_HANDLER, PostLoginHandler} from '../postLoginHandler.service';
 
 @Component({
@@ -28,10 +28,10 @@ export class CustomLoginComponent {
   private form: any;
 
   /**
-   * @param {LoginProvider} loginProvider The loginProvider to use to log in with.
+   * @param {LoginService} loginProvider The loginProvider to use to log in with.
    * @param {PostLoginHandler} postLoginHandler The loginHandler that deals with what happens post login and on error.
    */
-  constructor(@Inject(LOGIN_PROVIDER) private loginProvider: LoginProvider, @Inject(POST_LOGIN_HANDLER) private postLoginHandler: PostLoginHandler) {
+  constructor(@Inject(LOGIN_SERVICE) private loginProvider: LoginService, @Inject(POST_LOGIN_HANDLER) private postLoginHandler: PostLoginHandler) {
   }
 
   /**
