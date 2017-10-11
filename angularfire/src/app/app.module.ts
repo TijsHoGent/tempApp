@@ -15,7 +15,7 @@ import {LoginComponent} from './login/login.component';
 import {POST_LOGIN_HANDLER, PostLoginHandlerService} from "./login/postLoginHandler.service";
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RegistrationComponent} from './registration/registration.component';
-import {ADMINISTRATOR_SERVICE} from "./service/administratorService";
+import {ADMINISTRATOR_SERVICE} from "./service/types/administratorService";
 import {AuthenticationService} from './service/authentication.service';
 import {DatabaseService} from "./service/databaseService.service";
 import {GAMES_SERVICE} from "./service/types/gameService";
@@ -34,6 +34,7 @@ import {UserRefereeDetailsComponent} from './users/user-overview/user-details/us
 import {UserOverviewComponent} from './users/user-overview/user-overview.component';
 import {COACH_SERVICE} from "./service/types/coachService";
 import { UserCoachDetailsComponent } from './users/user-overview/user-details/user-coach-details/user-coach-details.component';
+import {UserNameComponent} from "./users/user-name.component";
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -51,7 +52,8 @@ export const firebaseConfig = environment.firebaseConfig;
     UserAdminDetailsComponent,
     GameDetailsComponent,
     UserOverviewComponent,
-    UserCoachDetailsComponent
+    UserCoachDetailsComponent,
+    UserNameComponent
   ],
   imports: [
     BrowserModule,

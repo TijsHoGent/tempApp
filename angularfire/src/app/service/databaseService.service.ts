@@ -4,7 +4,7 @@ import {Observable} from "rxjs/Observable";
 import {Name} from "../users/name.class";
 import {UserService} from "./types/userService";
 import {RefereeService} from "./types/refereeService";
-import {AdministratorService} from "./administratorService";
+import {AdministratorService} from "./types/administratorService";
 import {GameData, GameService} from "./types/gameService";
 import {TeamData, TeamService} from "./types/teamService";
 import {CoachService} from "./types/coachService";

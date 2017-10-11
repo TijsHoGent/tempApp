@@ -1,6 +1,6 @@
 <div *ngIf="$referee | async as referee; else notAReferee">
   <h2>Referee</h2>
-  <p>Promoter: {{referee.promotion.promoter.userId}}</p>
+  <p>Promoter: <app-user-name [userId]="referee.promotion.promoter.userId"></app-user-name></p>
   <p>Promoted: {{referee.promotion.timestamp}}</p>
   <p>TODO ASSIGN TO GAMES</p>
   <button (click)=demoteFromReferee()>Demote</button>

@@ -1,6 +1,6 @@
 <div *ngIf="$admin | async as admin; else notAnAdmin">
   <h2>Administrator</h2>
-  <p>Promoter: {{admin.promotion.promoter.userId}}</p>
+  <p>Promoter: <app-user-name [userId]="admin.promotion.promoter.userId"></app-user-name></p>
   <p>Promoted: {{admin.promotion.timestamp}}</p>
   <button (click)=demoteFromAdministrator()>Demote</button>
 </div>
