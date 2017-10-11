@@ -47,134 +47,159 @@ export class DatabaseService implements UserService, RefereeService, Administrat
   /**
    * @param {AngularFirestore} database The database to use.
    */
-  constructor(private database: AngularFirestore) {}
-
-  createUser(userId: string, emailAddress: string, name: Name): Promise<void> {
-    return this.database
-      .collection(USERS_DIRECTORY)
-      .doc(userId)
-      .set({
-        userId: userId,
-        emailAddress: emailAddress,
-        name: {
-          firstName: name.firstName,
-          lastName: name.lastName
-        }
-      });
+  constructor(private database: AngularFirestore) {
   }
 
-  /* EVERYTHING USER RELATED */
-  getAllUsers(): Observable<any> {
+  /**
+   * A standard method to create data in a directory.
+   *
+   * @param {string} directory The directory to get the object from from.
+   * @param {string} docId The docId to look for.
+   * @param data The data to give with the object.
+   */
+  private create(directory: string, docId: string, data): Promise<void> {
     return this.database
-      .collection(USERS_DIRECTORY)
+      .collection(directory)
+      .doc(docId)
+      .set(data);
+  }
+
+  /**
+   * A standard method to get all the object in a directory.
+   *
+   * @param {string} directory The directory to get all the objects from.
+   * @returns {Observable<any>} All the objects in the directory.
+   */
+  private getAll(directory: string): Observable<any> {
+    return this.database
+      .collection(directory)
       .valueChanges();
   }
 
-  getUser(userId: string): Observable<any> {
+  /**
+   * A standard method to get a single object from a directory.
+   *
+   * @param {string} directory The directory to get the object from from.
+   * @param {string} docId The docId to look for.
+   * @returns {Observable<any>} The document found with that docId.
+   */
+  private getSingle(directory: string, docId: string): Observable<any> {
     return this.database
-      .collection(USERS_DIRECTORY)
-      .doc(userId)
+      .collection(directory)
+      .doc(docId)
       .valueChanges();
   }
 
-  updateUser(userId: string, data: any): Promise<void> {
+  /**
+   * A standard method to update a single record in the database.
+   *
+   * @param {string} directory The directory to get the object from from.
+   * @param {string} docId The docId to look for.
+   * @param data The data to update.
+   */
+  private update(directory: string, docId: string, data: any): Promise<void> {
     return this.database
-      .collection(USERS_DIRECTORY)
-      .doc(userId)
+      .collection(directory)
+      .doc(docId)
       .update(data);
   }
 
-  removeUser(userId: string): Promise<void> {
+  /**
+   * A standard method to remove a single record from the database.
+   *
+   * @param {string} directory The directory to get the object from from.
+   * @param {string} docId The docId to look for.
+   */
+  private remove(directory: string, docId: string): Promise<void> {
     return this.database
-      .collection(USERS_DIRECTORY)
-      .doc(userId)
+      .collection(directory)
+      .doc(docId)
       .delete();
+  }
+
+  /* EVERYTHING USER RELATED */
+  createUser(userId: string, emailAddress: string, name: Name): Promise<void> {
+    return this.create(USERS_DIRECTORY, userId, {
+      userId: userId,
+      emailAddress: emailAddress,
+      name: {
+        firstName: name.firstName,
+        lastName: name.lastName
+      }
+    });
+  }
+
+  getAllUsers(): Observable<any> {
+    return this.getAll(USERS_DIRECTORY);
+  }
+
+  getUser(userId: string): Observable<any> {
+    return this.getSingle(USERS_DIRECTORY, userId);
+  }
+
+  updateUser(userId: string, data: any): Promise<void> {
+    return this.update(USERS_DIRECTORY, userId, data);
+  }
+
+  removeUser(userId: string): Promise<void> {
+    return this.remove(USERS_DIRECTORY, userId);
   }
 
   /* EVERYTHING REFEREE RELATED */
   createReferee(userId: string, data?): Promise<void> {
-    if(!data)
+    if (!data)
       data = {};
     data['userId'] = userId;
-    return this.database
-      .collection(REFEREES_DIRECTORY)
-      .doc(userId)
-      .set(data);
+    return this.create(REFEREES_DIRECTORY, userId, data);
   }
 
   removeReferee(userId: string): Promise<void> {
-    return this.database
-      .collection(REFEREES_DIRECTORY)
-      .doc(userId)
-      .delete();
+    return this.remove(REFEREES_DIRECTORY, userId);
   }
 
   getReferee(userId: string): Observable<any> {
-    return this.database
-      .collection(REFEREES_DIRECTORY)
-      .doc(userId)
-      .valueChanges();
+    return this.getSingle(REFEREES_DIRECTORY, userId);
   }
 
   /* EVERYTHING COACH RELATED */
   createCoach(userId: string, data?: any): Promise<void> {
-    if(!data)
+    if (!data)
       data = {};
     data['userId'] = userId;
-    return this.database
-      .collection(COACHES_DIRECTORY)
-      .doc(userId)
-      .set(data);
+    return this.create(COACHES_DIRECTORY, userId, data);
   }
 
   removeCoach(userId: string): Promise<void> {
-    return this.database
-      .collection(COACHES_DIRECTORY)
-      .doc(userId)
-      .delete();
+    return this.remove(COACHES_DIRECTORY, userId);
   }
 
   getCoach(userId: string): Observable<any> {
-    return this.database
-      .collection(COACHES_DIRECTORY)
-      .doc(userId)
-      .valueChanges();
+    return this.getSingle(COACHES_DIRECTORY, userId);
   }
 
   getAllCoaches(): Observable<any> {
-    return this.database
-      .collection(COACHES_DIRECTORY)
-      .valueChanges();
+    return this.getAll(COACHES_DIRECTORY);
   }
 
   /* EVERYTHING ADMINISTRATOR RELATED */
   createAdministrator(userId: string, data?): Promise<void> {
-    if(!data)
+    if (!data)
       data = {};
     data['userId'] = userId;
-    return this.database
-      .collection(ADMINISTRATOR_DIRECTORY)
-      .doc(userId)
-      .set(data);
+    return this.create(ADMINISTRATOR_DIRECTORY, userId, data);
   }
 
   removeAdministrator(userId: string): Promise<void> {
-    return this.database
-      .collection(ADMINISTRATOR_DIRECTORY)
-      .doc(userId)
-      .delete();
+    return this.remove(ADMINISTRATOR_DIRECTORY, userId);
   }
 
   getAdministrator(userId: string): Observable<any> {
-    return this.database
-      .collection(ADMINISTRATOR_DIRECTORY)
-      .doc(userId)
-      .valueChanges();
+    return this.getSingle(ADMINISTRATOR_DIRECTORY, userId);
   }
 
-  /* EVERYTHING MATCH RELATED */
+  /* EVERYTHING GAME RELATED */
   createGame(data?): Promise<GameData> {
-    if(!data)
+    if (!data)
       data = {};
     return this.database
       .collection(GAMES_DIRECTORY)
@@ -183,28 +208,20 @@ export class DatabaseService implements UserService, RefereeService, Administrat
   }
 
   getAllGames(): Observable<any> {
-    return this.database
-      .collection(GAMES_DIRECTORY)
-      .valueChanges();
+    return this.getAll(GAMES_DIRECTORY);
   }
 
   removeGame(gameId: string): Promise<void> {
-    return this.database
-      .collection(GAMES_DIRECTORY)
-      .doc(gameId)
-      .delete();
+    return this.remove(GAMES_DIRECTORY, gameId);
   }
 
   getGame(gameId: string): Observable<any> {
-    return this.database
-      .collection(GAMES_DIRECTORY)
-      .doc(gameId)
-      .valueChanges();
+    return this.getSingle(GAMES_DIRECTORY, gameId);
   }
 
   /* EVERYTHING TEAM RELATED */
   createTeam(data?: any): Promise<TeamData> {
-    if(!data)
+    if (!data)
       data = {};
     return this.database
       .collection(TEAMS_DIRECTORY)
@@ -213,17 +230,14 @@ export class DatabaseService implements UserService, RefereeService, Administrat
   }
 
   removeTeam(teamId: string): Promise<void> {
-    throw new Error("Method not implemented.");
+    return this.remove(TEAMS_DIRECTORY, teamId);
   }
 
   getAllTeams(): Observable<any> {
-    throw new Error("Method not implemented.");
+    return this.getAll(TEAMS_DIRECTORY);
   }
 
   getTeam(teamId: string): Observable<any> {
-    return this.database
-      .collection(TEAMS_DIRECTORY)
-      .doc(teamId)
-      .valueChanges();
+    return this.getSingle(TEAMS_DIRECTORY, teamId);
   }
 }
