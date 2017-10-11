@@ -8,10 +8,10 @@ import {LoginComponent} from "../app/login/login.component";
 import {AppComponent} from "../app/app.component";
 import {RegistrationComponent} from "../app/registration/registration.component";
 import {CustomLoginComponent} from "../app/login/customlogin/customlogin.component";
-import {AdminPanelComponent} from "../app/users/admin/admin-panel/admin-panel.component";
-import {UserDetailsComponent} from "../app/users/admin/user-details/user-details.component";
+import {AdminPanelComponent} from "../app/users/admin-panel/admin-panel.component";
+import {UserDetailsComponent} from "../app/users/user-overview/user-details/user-details.component";
 import {PageNotFoundComponent} from "../app/page-not-found/page-not-found.component";
-import {EditUserDetailsComponent} from "../app/users/admin/user-details/edit-user-details/edit-user-details.component";
+import {EditUserDetailsComponent} from "../app/users/user-overview/user-details/edit-user-details/edit-user-details.component";
 
 export const environment = {
   production: false,

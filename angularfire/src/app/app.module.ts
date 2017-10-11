@@ -18,16 +18,22 @@ import {RegistrationComponent} from './registration/registration.component';
 import {ADMINISTRATOR_SERVICE} from "./service/administratorService";
 import {AuthenticationService} from './service/authentication.service';
 import {DatabaseService} from "./service/databaseService.service";
+import {GAMES_SERVICE} from "./service/types/gameService";
 
-import {LOGIN_SERVICE} from './service/loginService';
-import {REFEREE_SERVICE} from "./service/refereeService";
-import {REGISTRATION_SERVICE} from './service/registrationService';
-import {USER_SERVICE} from "./service/userService";
-import {AdminPanelComponent} from "./users/admin/admin-panel/admin-panel.component";
-import {UserAdminDetailsComponent} from './users/admin/user-details/user-admin-details/user-admin-details.component';
-import {EditUserDetailsComponent} from './users/admin/user-details/edit-user-details/edit-user-details.component';
-import {UserDetailsComponent} from './users/admin/user-details/user-details.component';
-import {UserRefereeDetailsComponent} from './users/admin/user-details/user-referee-details/user-referee-details.component';
+import {LOGIN_SERVICE} from './service/types/loginService';
+import {REFEREE_SERVICE} from "./service/types/refereeService";
+import {REGISTRATION_SERVICE} from './service/types/registrationService';
+import {TEAM_SERVICE} from "./service/types/teamService";
+import {USER_SERVICE} from "./service/types/userService";
+import {AdminPanelComponent} from "./users/admin-panel/admin-panel.component";
+import {GameDetailsComponent} from './users/game-overview/game-details/game-details.component';
+import {EditUserDetailsComponent} from './users/user-overview/user-details/edit-user-details/edit-user-details.component';
+import {UserAdminDetailsComponent} from './users/user-overview/user-details/user-admin-details/user-admin-details.component';
+import {UserDetailsComponent} from './users/user-overview/user-details/user-details.component';
+import {UserRefereeDetailsComponent} from './users/user-overview/user-details/user-referee-details/user-referee-details.component';
+import {UserOverviewComponent} from './users/user-overview/user-overview.component';
+import {COACH_SERVICE} from "./service/types/coachService";
+import { UserCoachDetailsComponent } from './users/user-overview/user-details/user-coach-details/user-coach-details.component';
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -42,7 +48,10 @@ export const firebaseConfig = environment.firebaseConfig;
     AdminPanelComponent,
     EditUserDetailsComponent,
     UserRefereeDetailsComponent,
-    UserAdminDetailsComponent
+    UserAdminDetailsComponent,
+    GameDetailsComponent,
+    UserOverviewComponent,
+    UserCoachDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +68,10 @@ export const firebaseConfig = environment.firebaseConfig;
     {provide: POST_LOGIN_HANDLER, useClass: PostLoginHandlerService},
     {provide: USER_SERVICE, useClass: DatabaseService},
     {provide: REFEREE_SERVICE, useClass: DatabaseService},
-    {provide: ADMINISTRATOR_SERVICE, useClass: DatabaseService}
+    {provide: ADMINISTRATOR_SERVICE, useClass: DatabaseService},
+    {provide: GAMES_SERVICE, useClass: DatabaseService},
+    {provide: TEAM_SERVICE, useClass: DatabaseService},
+    {provide: COACH_SERVICE, useClass: DatabaseService}
   ],
   bootstrap: [AppComponent]
 })

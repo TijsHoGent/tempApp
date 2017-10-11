@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {Observable} from "rxjs/Observable";
-import {USER_SERVICE, UserService} from "../../../service/userService";
 import {ActivatedRoute, ParamMap,} from "@angular/router";
+import {Observable} from "rxjs/Observable";
+import {USER_SERVICE, UserService} from "../../../service/types/userService";
 
 @Component({
   selector: 'app-user-details',

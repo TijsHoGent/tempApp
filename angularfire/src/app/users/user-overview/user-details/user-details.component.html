@@ -4,6 +4,7 @@
   <p>Last Name: {{user.name.lastName}}</p>
   <button [routerLink]="['/admin/user/edit/', user.userId]">Edit user information</button>
 
+  <app-user-coach-details></app-user-coach-details>
   <app-user-referee-details></app-user-referee-details>
   <app-user-admin-details></app-user-admin-details>
 </div>

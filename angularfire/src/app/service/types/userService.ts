@@ -1,4 +1,4 @@
-import {Name} from "../users/name.class";
+import {Name} from "../../users/name.class";
 import {InjectionToken} from "@angular/core";
 import {Observable} from "rxjs/Observable";
 

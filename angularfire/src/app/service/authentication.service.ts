@@ -1,11 +1,11 @@
 import {Inject, Injectable} from '@angular/core';
 import {AngularFireAuth} from 'angularfire2/auth';
 import {AuthProvider} from 'firebase/auth';
-import {LoginService, LoginResult} from './loginService';
-import {RegistrationService, RegistrationResult} from './registrationService';
+import {LoginService, LoginResult} from './types/loginService';
+import {RegistrationService, RegistrationResult} from './types/registrationService';
 import {Name} from "../users/name.class";
 import {AngularFirestore} from "angularfire2/firestore";
-import {USER_SERVICE, UserService} from "./userService";
+import {USER_SERVICE, UserService} from "./types/userService";
 
 @Injectable()
 export class AuthenticationService implements LoginService, RegistrationService {

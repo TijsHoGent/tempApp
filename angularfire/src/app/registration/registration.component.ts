@@ -1,5 +1,5 @@
 import {Component, Inject, ViewChild} from '@angular/core';
-import {REGISTRATION_SERVICE, RegistrationService} from '../service/registrationService';
+import {REGISTRATION_SERVICE, RegistrationService} from '../service/types/registrationService';
 import {Name} from "../users/name.class";
 
 @Component({

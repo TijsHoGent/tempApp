@@ -1,6 +1,6 @@
 import {Component, Inject, OnInit, ViewChild} from '@angular/core';
 import {ActivatedRoute, ParamMap, Router} from "@angular/router";
-import {USER_SERVICE, UserService} from "../../../../service/userService";
+import {USER_SERVICE, UserService} from "../../../../service/types/userService";
 import {Observable} from "rxjs/Observable";
 
 @Component({
@@ -9,6 +9,9 @@ import {Observable} from "rxjs/Observable";
   styleUrls: ['./edit-user-details.component.css']
 })
 export class EditUserDetailsComponent implements OnInit {
+  /**
+   * The model used to edit the user.
+   */
   private model: EditUserDetailsForm = new EditUserDetailsForm();
 
   /**

@@ -2,7 +2,7 @@ import {Component, Inject} from '@angular/core';
 import {Router} from "@angular/router";
 import * as firebase from 'firebase/app';
 import {AuthProvider} from 'firebase/auth';
-import {LOGIN_SERVICE, LoginService} from '../service/loginService';
+import {LOGIN_SERVICE, LoginService} from '../service/types/loginService';
 import {POST_LOGIN_HANDLER, PostLoginHandler} from './postLoginHandler.service';
 
 /**

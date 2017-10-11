@@ -1,0 +1,10 @@
+<div *ngIf="$coach | async as coach; else notAnAdmin">
+  <h2>Coach</h2>
+  <p>Promoter: {{coach.promotion.promoter.userId}}</p>
+  <p>Promoted: {{coach.promotion.timestamp}}</p>
+  <button (click)=demoteFromCoach()>Demote</button>
+</div>
+
+<ng-template #notAnAdmin>
+  <button (click)=makeUserCoach()>Make this user a coach</button>
+</ng-template>

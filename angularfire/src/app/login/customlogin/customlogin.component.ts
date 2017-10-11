@@ -1,5 +1,5 @@
 import {Component, Inject, ViewChild} from '@angular/core';
-import {LOGIN_SERVICE, LoginService} from "../../service/loginService";
+import {LOGIN_SERVICE, LoginService} from "../../service/types/loginService";
 import {POST_LOGIN_HANDLER, PostLoginHandler} from '../postLoginHandler.service';
 
 @Component({
