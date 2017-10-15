@@ -1,6 +1,6 @@
 <div *ngIf="$coach | async as coach; else notACoach">
   <h2>Coach</h2>
-  <p>Promoter: <app-user-name [userId]="coach.promotion.promoter.userId"></app-user-name></p>
+  <p>Promoter: <app-user-cross-reference [queryId]="coach.promotion.promoter.userId"></app-user-cross-reference></p>
   <p>Promoted: {{coach.promotion.timestamp}}</p>
   <button (click)=demoteFromCoach()>Demote</button>
 </div>

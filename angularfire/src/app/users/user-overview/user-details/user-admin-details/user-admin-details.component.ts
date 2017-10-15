@@ -3,6 +3,8 @@ import {Observable} from "rxjs/Observable";
 import {ADMINISTRATOR_SERVICE, AdministratorService} from "../../../../service/types/administratorService";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {AngularFireAuth} from "angularfire2/auth";
+import {USER_SERVICE, UserService} from "../../../../service/types/userService";
+import {UserCrossReferenceComponent} from "../../../user-cross-reference.component";
 
 @Component({
   selector: 'app-user-admin-details',

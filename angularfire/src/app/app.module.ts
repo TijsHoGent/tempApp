@@ -34,7 +34,8 @@ import {UserRefereeDetailsComponent} from './users/user-overview/user-details/us
 import {UserOverviewComponent} from './users/user-overview/user-overview.component';
 import {COACH_SERVICE} from "./service/types/coachService";
 import { UserCoachDetailsComponent } from './users/user-overview/user-details/user-coach-details/user-coach-details.component';
-import {UserNameComponent} from "./users/user-name.component";
+import {CrossReferenceComponent} from "./misc/cross-reference-component";
+import {UserCrossReferenceComponent} from "./users/user-cross-reference.component";
 
 export const firebaseConfig = environment.firebaseConfig;
 
@@ -53,7 +54,8 @@ export const firebaseConfig = environment.firebaseConfig;
     GameDetailsComponent,
     UserOverviewComponent,
     UserCoachDetailsComponent,
-    UserNameComponent
+    CrossReferenceComponent,
+    UserCrossReferenceComponent
   ],
   imports: [
     BrowserModule,

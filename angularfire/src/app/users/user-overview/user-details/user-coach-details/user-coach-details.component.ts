@@ -1,8 +1,8 @@
 import {Component, Inject, OnInit} from '@angular/core';
-import {COACH_SERVICE, CoachService} from "../../../../service/types/coachService";
-import {Observable} from "rxjs/Observable";
 import {ActivatedRoute, ParamMap} from "@angular/router";
 import {AngularFireAuth} from "angularfire2/auth";
+import {Observable} from "rxjs/Observable";
+import {COACH_SERVICE, CoachService} from "../../../../service/types/coachService";
 
 @Component({
   selector: 'app-user-coach-details',
