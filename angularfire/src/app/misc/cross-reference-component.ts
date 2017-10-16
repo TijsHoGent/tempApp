@@ -7,12 +7,12 @@ import {Observable} from "rxjs/Observable";
 })
 export class CrossReferenceComponent implements OnInit {
   /**
-   * The requested user.
+   * The requested object.
    */
   private $object: Observable<any>;
 
   /**
-   * The ID of the user.
+   * The ID of the object.
    */
   @Input()
   private queryId: string;
