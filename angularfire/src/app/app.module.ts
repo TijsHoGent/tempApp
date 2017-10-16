@@ -37,6 +37,10 @@ import { UserCoachDetailsComponent } from './users/user-overview/user-details/us
 import {CrossReferenceComponent} from "./misc/cross-reference-component";
 import {UserCrossReferenceComponent} from "./users/user-cross-reference.component";
 
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { TooltipModule } from 'ngx-bootstrap/tooltip';
+import { ModalModule } from 'ngx-bootstrap/modal';
+
 export const firebaseConfig = environment.firebaseConfig;
 
 @NgModule({
@@ -63,6 +67,9 @@ export const firebaseConfig = environment.firebaseConfig;
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
     AngularFireAuthModule,
+    BsDropdownModule.forRoot(),
+    TooltipModule.forRoot(),
+    ModalModule.forRoot(),
     //Keep this one last
     RouterModule.forRoot(appRoutes)
   ],
