@@ -37,6 +37,7 @@ export class RegistrationComponent {
       this.registrationProvider
         .registerUser(this.model.emailAddress, this.model.password, this.model.name)
         .then(value => {
+          console.log('Successfully registered')
           //TODO WRITE CODE HERE FOR WHEN USER IS CREATED
         })
         .catch(reason => {
